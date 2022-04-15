@@ -5,6 +5,7 @@ const inquirer = require('inquirer');
 // Allows the code to interact with the file system
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown')
+
  
 
 const makeREADME = (answers) =>
@@ -111,10 +112,9 @@ inquirer
         console.log(answers.License)
 
 
-
+// Logs the array of links to the terminal
+console.log(generateMarkdown.pushArrayLink())
         // I want the pushArrayLink(choiceLinks) in my generateMarkdown.js to work with the index.js. The parameter, (answers) isn't turning orange in my generateMarkdown.js. I want it to call in here so when you go through the prompt, it appends one of the links in the choiceLink array to the license badge as per the instructions in the generateMarkdown.js
-        // Logs the array of links to the terminal
-    console.log(generateMarkdown.pushArrayLink())
 
 // --------------------------------------- ADDING TO generateMarkdown ------------------------------------------ 
         // const choiceLinks = {

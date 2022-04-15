@@ -10,11 +10,11 @@ const choiceLinks = {
 
         const pushArrayLink = (link) => {
             // console.log(link.array[2])
-            if (answers.License === 'GNU') {
+            if (link.License === 'GNU') {
                 console.log(`This is GNU: ${link.array[0]}`)
-            } else if (answers.License === 'WordPress') {
+            } else if (link.License === 'WordPress') {
                 console.log(`This is WordPress: ${link.array[1]}`)
-            } else if (answers.License === 'Apache') {
+            } else if (link.License === 'Apache') {
                 console.log(`This is Apache: ${link.array[2]}`)
             } else {
                 console.log(`This is OpenBSD: ${link.array[3]}`)
