@@ -1,6 +1,7 @@
 # f
-![GitHub](https://img.shields.io/github/license/jimbolikesgithub/README-Generator-09?color=%2330&label=Licence&style=flat-square)
-[License](https://img.shields.io/badge/License-GNU-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
+![GitHubhttps://img.shields.io/github/license/jimbolikesgithub/README-Generator-09?style=flat-square)
+[![License](https://img.shields.io/github/license/jimbolikesgithub/README-Generator-09?style=flat-square)]
+
 
 ## Description
 f
