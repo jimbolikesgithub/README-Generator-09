@@ -26,7 +26,7 @@ undefined
 
 ## Questions
 If you wish to reach out, please use the provided information below!
-    - [Github](https://github.com/jimbolikesgithub)
+    - [Github](https://github.com/jimbolikesgithub) <br/>
     - [Email]: f
 
 ## Video Link 
