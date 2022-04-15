@@ -1,6 +1,6 @@
 # f
-![GitHubhttps://img.shields.io/github/license/jimbolikesgithub/README-Generator-09?style=flat-square)
-[![License](https://img.shields.io/github/license/jimbolikesgithub/README-Generator-09?style=flat-square)]
+
+[![License](https://img.shields.io/github/license-MIT/jimbolikesgithub/README-Generator-09?style=flat-square)]
 
 
 ## Description
