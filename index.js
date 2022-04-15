@@ -8,8 +8,7 @@ const fs = require('fs');
 
 const makeREADME = (answers) =>
 `# ${answers.Title}
-![GitHub](https://img.shields.io/github/license/jimbolikesgithub/README-Generator-09)
-[License](https://img.shields.io/badge/License-${answers.License}-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[License](https://img.shields.io/badge/License-${answers.License}-green.svg)](https://www.gnu.org/licenses/license-recommendations.html)
 
 ## Description
 ${answers.Description}
@@ -71,7 +70,7 @@ inquirer
             type: 'list',
             name: 'License',
             message: 'Please choose a liscence:',
-            choices: ['GNU', 'WordPress', 'Apache', 'Cloud Native Computing Foundationr']
+            choices: ['GNU', 'WordPress', 'Apache', 'OpenBSD']
         },
         {
             type: 'input',
@@ -97,7 +96,37 @@ inquirer
     .then((answers) => {
         const READMEContent = makeREADME(answers);
 
-        fs.writeFile('README.md', READMEContent, (err) => 
-            err ? console.log(err) : console.log('Daijobu!')
-        );
+        // fs.writeFile('README.md', READMEContent, (err) => 
+        //     err ? console.log(err) : console.log('Daijobu!')
+        // );
+
+        // answers.License prints whichever choice was chosen (I chose GNU, so it logged 'GNU')
+        console.log(answers.License)
+
+        const choiceLinks = {
+            // [GNU, WordPress , Appache, OpenBSD]
+            array: ['https://www.gnu.org/licenses/license-recommendations.html', 'https://wordpress.org/about/license/', 'https://www.apache.org/licenses/', 'https://www.openbsd.org/policy.html']
+        }
+
+        // Object Destructuring
+        const { array } = choiceLinks
+        // Logs the entire array of links
+        console.log(array);
+
+        const pushArrayLink = (link) => {
+            // console.log(link.array[2])
+            if (answers.License === 'GNU') {
+                console.log(`This is GNU: ${link.array[0]}`)
+            } else if (answers.License === 'WordPress') {
+                console.log(`This is WordPress: ${link.array[1]}`)
+            } else if (answers.License === 'Apache') {
+                console.log(`This is Apache: ${link.array[2]}`)
+            } else {
+                console.log(`This is OpenBSD: ${link.array[3]}`)
+            }
+            return link;
+        }
+        // Returning each array index, for ex...
+        // console.log(link.array[1]) will return 'https://wordpress.org/about/license/' (but without the strings)
+        pushArrayLink(choiceLinks)
     });

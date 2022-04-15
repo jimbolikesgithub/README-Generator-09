@@ -1,4 +1,4 @@
-<!-- DONE -->
+<!-- DONE --> 
 1. Add inquirer and fs to the top of the page
     - const inquirer = require('inquirer');
     - const fs = require('fs');
