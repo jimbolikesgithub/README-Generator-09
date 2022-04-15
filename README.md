@@ -1,5 +1,4 @@
 # f
-![GitHub](https://img.shields.io/github/license/jimbolikesgithub/README-Generator-09)
 [![License](https://img.shields.io/badge/License-Apache-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 ## Description
