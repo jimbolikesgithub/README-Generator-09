@@ -33,5 +33,7 @@
     - Tests (Tests Section)
     - Github Username (Questions Section)
     - Email (Questions Section)
+<!--  -->
 7. A badge for chosen license is added to License Section
     - A notice is added to the section of the README entitled License that explains which license the application is covered under
+    - There is a link that is appended to the open parentheses when a license has been chosen.

@@ -4,7 +4,7 @@
 const inquirer = require('inquirer');
 // Allows the code to interact with the file system
 const fs = require('fs');
-// const utils = require('./utils/generateMarkdown')
+const generateMarkdown = require('./utils/generateMarkdown')
  
 
 const makeREADME = (answers) =>
@@ -50,7 +50,6 @@ If you wish to reach out, please use the provided information below! <br/>
 
 ---
 `;
-
 
 inquirer 
     .prompt([
@@ -104,13 +103,18 @@ inquirer
     .then((answers) => {
         const READMEContent = makeREADME(answers);
 
-        fs.writeFile('README.md', READMEContent, (err) => 
-            err ? console.log(err) : console.log('Daijobu!')
-        );
+        // fs.writeFile('README.md', READMEContent, (err) => 
+        //     err ? console.log(err) : console.log('Daijobu!')
+        // );
 
         // answers.License prints whichever choice was chosen (I chose GNU, so it logged 'GNU')
         console.log(answers.License)
 
+
+
+        // I want the pushArrayLink(choiceLinks) in my generateMarkdown.js to work with the index.js. The parameter, (answers) isn't turning orange in my generateMarkdown.js. I want it to call in here so when you go through the prompt, it appends one of the links in the choiceLink array to the license badge as per the instructions in the generateMarkdown.js
+        // Logs the array of links to the terminal
+    console.log(generateMarkdown.pushArrayLink())
 
 // --------------------------------------- ADDING TO generateMarkdown ------------------------------------------ 
         // const choiceLinks = {
@@ -139,5 +143,4 @@ inquirer
         // // // Returning each array index, for ex...
         // // // console.log(link.array[1]) will return 'https://wordpress.org/about/license/' (but without the strings)
         // pushArrayLink(choiceLinks)
-
     });
