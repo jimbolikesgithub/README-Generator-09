@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const makeREADME = (answers) =>
 `# ${answers.Title}
-[License](https://img.shields.io/badge/License-${answers.License}-green.svg)](https://www.gnu.org/licenses/license-recommendations.html)
+[![License](https://img.shields.io/badge/License-${answers.License}-green.svg)](https://www.gnu.org/licenses/license-recommendations.html)
 
 ## Description
 ${answers.Description}

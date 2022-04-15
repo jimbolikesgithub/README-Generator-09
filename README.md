@@ -1,5 +1,5 @@
 # 
-[License](https://img.shields.io/badge/License-GNU-green.svg)](https://www.gnu.org/licenses/license-recommendations.html)
+[![License](https://img.shields.io/badge/License-GNU-green.svg)](https://www.gnu.org/licenses/license-recommendations.html)
 
 ## Description
 
