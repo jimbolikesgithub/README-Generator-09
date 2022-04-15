@@ -1,4 +1,6 @@
 
+// FORGOT WE HAD THIS AND DID IT ALL IN ONE FILE MY OWN SEPARATE WAY BUT IT WORKED IM SO SORRY 
+
 // const choiceLinks = {
 //   // [GNU, WordPress , Appache, OpenBSD]
 //   array: ['https://www.gnu.org/licenses/license-recommendations.html', 'https://wordpress.org/about/license/', 'https://www.apache.org/licenses/', 'https://www.openbsd.org/policy.html']
