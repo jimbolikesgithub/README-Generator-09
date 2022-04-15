@@ -1,16 +1,12 @@
-
-// 1.
 // Adding the inquirer npm; make sure to run 'npm i'
 const inquirer = require('inquirer');
 // Allows the code to interact with the file system
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown')
 
- 
-
+// -------------------------------------------------------------------------------------------------------------------------------------------
 const makeREADME = (answers) =>
 `# ${answers.Title}
-[![License](https://img.shields.io/badge/License-${answers.License}-green.svg)]()
+[![License](https://img.shields.io/badge/License-${answers.License}-green.svg)](${})
 
 ## Description <a name='description'></a>
 ${answers.Description}
@@ -51,8 +47,9 @@ If you wish to reach out, please use the provided information below! <br/>
 
 ---
 `;
-
-inquirer 
+// -------------------------------------------------------------------------------------------------------------------------------------------
+const promptUser = () => {
+return inquirer 
     .prompt([
         {
             type: 'input',
@@ -87,7 +84,7 @@ inquirer
         },
         {
             type: 'input',
-            name: 'Tests',
+            name: 'Test',
             message: 'List some test instructions:'
         },
         {
@@ -101,46 +98,52 @@ inquirer
             message: 'Please enter your full email:'
         },
     ])
+}
+// REFACTORED ^^
+// -------------------------------------------------------------------------------------------------------------------------------------------
+const init = () => {
+    // Calling promptUser function
+    promptUser()
     .then((answers) => {
         const READMEContent = makeREADME(answers);
 
-        // fs.writeFile('README.md', READMEContent, (err) => 
-        //     err ? console.log(err) : console.log('Daijobu!')
-        // );
+        fs.writeFile('README.md', READMEContent, (err) => 
+            err ? console.log(err) : console.log('Daijobu!')
+        );
 
         // answers.License prints whichever choice was chosen (I chose GNU, so it logged 'GNU')
         console.log(answers.License)
+// REFACTORED ^^
+// -------------------------------------------------------------------------------------------------------------------------------------------
+    const choiceLinks = {
+        // [GNU, WordPress , Appache, OpenBSD]
+        array: ['https://www.gnu.org/licenses/license-recommendations.html', 'https://wordpress.org/about/license/', 'https://www.apache.org/licenses/', 'https://www.openbsd.org/policy.html']
+    }
 
+    // Object Destructuring
+    const { array } = choiceLinks
+    // Logs the entire array of links
+    console.log(array);
 
-// Logs the array of links to the terminal
-console.log(generateMarkdown.pushArrayLink())
-        // I want the pushArrayLink(choiceLinks) in my generateMarkdown.js to work with the index.js. The parameter, (answers) isn't turning orange in my generateMarkdown.js. I want it to call in here so when you go through the prompt, it appends one of the links in the choiceLink array to the license badge as per the instructions in the generateMarkdown.js
+    const pushArrayLink = (link) => {
+        // console.log(link.array[2])
+        if (answers.License === 'GNU') {
+            console.log(`This is GNU: ${link.array[0]}`)
+        } else if (answers.License === 'WordPress') {
+            console.log(`This is WordPress: ${link.array[1]}`)
+        } else if (answers.License === 'Apache') {
+            console.log(`This is Apache: ${link.array[2]}`)
+        } else {
+            console.log(`This is OpenBSD: ${link.array[3]}`)
+        }
+        return link;
+    }
+    // // Returning each array index, for ex...
+    // // console.log(link.array[1]) will return 'https://wordpress.org/about/license/' (but without the strings)
+    pushArrayLink(choiceLinks)
+})};
 
-// --------------------------------------- ADDING TO generateMarkdown ------------------------------------------ 
-        // const choiceLinks = {
-        //     // [GNU, WordPress , Appache, OpenBSD]
-        //     array: ['https://www.gnu.org/licenses/license-recommendations.html', 'https://wordpress.org/about/license/', 'https://www.apache.org/licenses/', 'https://www.openbsd.org/policy.html']
-        // }
+// Calling init() function
+init()
 
-        // // Object Destructuring
-        // const { array } = choiceLinks
-        // // Logs the entire array of links
-        // console.log(array);
-
-        // const pushArrayLink = (link) => {
-        //     // console.log(link.array[2])
-        //     if (answers.License === 'GNU') {
-        //         console.log(`This is GNU: ${link.array[0]}`)
-        //     } else if (answers.License === 'WordPress') {
-        //         console.log(`This is WordPress: ${link.array[1]}`)
-        //     } else if (answers.License === 'Apache') {
-        //         console.log(`This is Apache: ${link.array[2]}`)
-        //     } else {
-        //         console.log(`This is OpenBSD: ${link.array[3]}`)
-        //     }
-        //     return link;
-        // }
-        // // // Returning each array index, for ex...
-        // // // console.log(link.array[1]) will return 'https://wordpress.org/about/license/' (but without the strings)
-        // pushArrayLink(choiceLinks)
-    });
+// Note: Everytime you run 'node index.js', it will automatically refactor the file you've previously created (if you haven't yet made a new file, it will create one for you, thanks to fs.writeFile)
