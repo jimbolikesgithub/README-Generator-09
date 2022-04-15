@@ -96,9 +96,9 @@ inquirer
     .then((answers) => {
         const READMEContent = makeREADME(answers);
 
-        // fs.writeFile('README.md', READMEContent, (err) => 
-        //     err ? console.log(err) : console.log('Daijobu!')
-        // );
+        fs.writeFile('README.md', READMEContent, (err) => 
+            err ? console.log(err) : console.log('Daijobu!')
+        );
 
         // answers.License prints whichever choice was chosen (I chose GNU, so it logged 'GNU')
         console.log(answers.License)
