@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const makeREADME = (answers) =>
 `# ${answers.Title}
-
+![GitHub](https://img.shields.io/github/license/jimbolikesgithub/README-Generator-09)
 [License](https://img.shields.io/badge/License-${answers.License}-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 ## Description
@@ -34,8 +34,8 @@ ${answers.Contributing}
 ${answers.Test}
 
 ## Questions
-If you wish to reach out, please use the provided information below!
-    - [Github](https://github.com/${answers.Github})
+If you wish to reach out, please use the provided information below! <br/>
+    - [Github](https://github.com/${answers.Github}) <br/>
     - [Email]: ${answers.Email}
 
 ## Video Link 
