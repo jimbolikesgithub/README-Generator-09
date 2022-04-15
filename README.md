@@ -1,7 +1,6 @@
 # f
-
-![License](https://img.shields.io/github/license/jimbolikesgithub/README-Generator-09?style=flat-square)
-
+![GitHub](https://img.shields.io/github/license/jimbolikesgithub/README-Generator-09)
+[License](https://img.shields.io/badge/License-Apache-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 ## Description
 f
@@ -17,7 +16,7 @@ f
 f
 
 ## Liscence
-GNU
+Apache
 
 ## Contributing
 f
