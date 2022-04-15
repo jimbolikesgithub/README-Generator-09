@@ -4,8 +4,8 @@
 const inquirer = require('inquirer');
 // Allows the code to interact with the file system
 const fs = require('fs');
-
  
+
 const makeREADME = (answers) =>
 `# ${answers.Title}
 
