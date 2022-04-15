@@ -4,11 +4,12 @@
 const inquirer = require('inquirer');
 // Allows the code to interact with the file system
 const fs = require('fs');
+// const utils = require('./utils/generateMarkdown')
  
 
 const makeREADME = (answers) =>
 `# ${answers.Title}
-[![License](https://img.shields.io/badge/License-${answers.License}-green.svg)](https://www.gnu.org/licenses/license-recommendations.html)
+[![License](https://img.shields.io/badge/License-${answers.License}-green.svg)]()
 
 ## Description
 ${answers.Description}
@@ -35,7 +36,7 @@ ${answers.Test}
 ## Questions
 If you wish to reach out, please use the provided information below! <br/>
     - [Github](https://github.com/${answers.Github}) <br/>
-    - [Email]: ${answers.Email}
+    - Email: ${answers.Email}
 
 ## Video Link 
     - [Video]()
@@ -126,7 +127,8 @@ inquirer
             }
             return link;
         }
-        // Returning each array index, for ex...
-        // console.log(link.array[1]) will return 'https://wordpress.org/about/license/' (but without the strings)
+        // // Returning each array index, for ex...
+        // // console.log(link.array[1]) will return 'https://wordpress.org/about/license/' (but without the strings)
         pushArrayLink(choiceLinks)
+
     });
