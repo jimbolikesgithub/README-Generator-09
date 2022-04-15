@@ -1,6 +1,8 @@
 # f
 
  - [License](https://img.shields.io/badge/License-GNU-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
+ - [License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+ - 
 
 ## Description
 f
