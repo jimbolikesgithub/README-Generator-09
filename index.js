@@ -4,9 +4,37 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // -------------------------------------------------------------------------------------------------------------------------------------------
-const makeREADME = (answers) =>
-`# ${answers.Title}
-[![License](https://img.shields.io/badge/License-${answers.License}-green.svg)](${})
+const pushArrayLink = (license) => {
+    // Empty string for each link (commented out the way I did before down at the bottom)
+    let link = ''
+    // IF the choice is equal to the strings bellow...
+    if (license === 'GNU') {
+        // ...console log them, AND...
+        console.log(`This is GNU: https://www.gnu.org/licenses/license-recommendations.html`)
+        // ...print them by returning the link strings
+        link = 'https://www.gnu.org/licenses/license-recommendations.html'
+    } else if (license === 'WordPress') {
+        console.log(`This is WordPress: https://wordpress.org/about/license/`)
+        link = 'https://wordpress.org/about/license/'
+    } else if (license === 'Apache') {
+        console.log(`This is Apache: https://www.apache.org/licenses/`)
+        link = 'https://www.apache.org/licenses/'
+    } else {
+        console.log(`This is OpenBSD: https://www.openbsd.org/policy.html`)
+        link = 'https://www.openbsd.org/policy.html'
+    }
+    // Return link strings
+    return link ;
+}
+
+const makeREADME = (answers) => {
+// linkContainer holds the function pushArrayLink which allows it to be used via a template literal, so that...
+// ...when a choice is clicked (GNU, Apache, etc)...
+// ...the link is appended to the empty parentheses
+ linkContainer = pushArrayLink(answers.License)
+ return`
+# ${answers.Title}
+[![License](https://img.shields.io/badge/License-${answers.License}-green.svg)](${linkContainer})
 
 ## Description <a name='description'></a>
 ${answers.Description}
@@ -47,6 +75,7 @@ If you wish to reach out, please use the provided information below! <br/>
 
 ---
 `;
+}
 // -------------------------------------------------------------------------------------------------------------------------------------------
 const promptUser = () => {
 return inquirer 
@@ -115,32 +144,32 @@ const init = () => {
         console.log(answers.License)
 // REFACTORED ^^
 // -------------------------------------------------------------------------------------------------------------------------------------------
-    const choiceLinks = {
-        // [GNU, WordPress , Appache, OpenBSD]
-        array: ['https://www.gnu.org/licenses/license-recommendations.html', 'https://wordpress.org/about/license/', 'https://www.apache.org/licenses/', 'https://www.openbsd.org/policy.html']
-    }
+    // const choiceLinks = {
+    //     // [GNU, WordPress , Appache, OpenBSD]
+    //     array: ['https://www.gnu.org/licenses/license-recommendations.html', 'https://wordpress.org/about/license/', 'https://www.apache.org/licenses/', 'https://www.openbsd.org/policy.html']
+    // }
 
-    // Object Destructuring
-    const { array } = choiceLinks
-    // Logs the entire array of links
-    console.log(array);
+    // // Object Destructuring
+    // const { array } = choiceLinks
+    // // Logs the entire array of links
+    // console.log(array);
 
-    const pushArrayLink = (link) => {
-        // console.log(link.array[2])
-        if (answers.License === 'GNU') {
-            console.log(`This is GNU: ${link.array[0]}`)
-        } else if (answers.License === 'WordPress') {
-            console.log(`This is WordPress: ${link.array[1]}`)
-        } else if (answers.License === 'Apache') {
-            console.log(`This is Apache: ${link.array[2]}`)
-        } else {
-            console.log(`This is OpenBSD: ${link.array[3]}`)
-        }
-        return link;
-    }
-    // // Returning each array index, for ex...
-    // // console.log(link.array[1]) will return 'https://wordpress.org/about/license/' (but without the strings)
-    pushArrayLink(choiceLinks)
+    // const pushArrayLink = (link) => {
+    //     // console.log(link.array[2])
+    //     if (answers.License === 'GNU') {
+    //         console.log(`This is GNU: ${link.array[0]}`)
+    //     } else if (answers.License === 'WordPress') {
+    //         console.log(`This is WordPress: ${link.array[1]}`)
+    //     } else if (answers.License === 'Apache') {
+    //         console.log(`This is Apache: ${link.array[2]}`)
+    //     } else {
+    //         console.log(`This is OpenBSD: ${link.array[3]}`)
+    //     }
+    //     return link;
+    // }
+    // // // Returning each array index, for ex...
+    // // // console.log(link.array[1]) will return 'https://wordpress.org/about/license/' (but without the strings)
+    // pushArrayLink(choiceLinks)
 })};
 
 // Calling init() function
