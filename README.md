@@ -37,6 +37,6 @@ If you wish to reach out, please use the provided information below! <br/>
     - Email: edwards.econn@gmail.com
 
 ## Video Link <a name='video-link'></a>
-    - [Video](https://drive.google.com/file/d/1FQMps-KUSSkDNoNnMd5Vo7MQZFnChzte/view?usp=sharing)
+[Video](https://drive.google.com/file/d/1FQMps-KUSSkDNoNnMd5Vo7MQZFnChzte/view?usp=sharing)
 
 ---
